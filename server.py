@@ -26,7 +26,7 @@ def create_room_server():
         join_data = json.loads(data.decode("utf-8"))
 
         for client in users:
-            client.sendall(f"{join_data["name"]} has joined the chatroom!".encode())
+            client.sendall(f"{join_data["name"]} has joined the chatroom! ({join_data["ip"]})".encode())
 
         while True:
             try:
