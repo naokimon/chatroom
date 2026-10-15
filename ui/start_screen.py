@@ -70,3 +70,6 @@ class StartScreen(Screen):
     def on_mount(self) -> None:
         self.title = "Chatroom"
         self.sub_title = "Made by naokimon and Yoru_VSV"
+
+    def on_button_pressed(self, event: Button.Pressed):
+        self.app.push_screen("home")
