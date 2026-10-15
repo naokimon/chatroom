@@ -44,13 +44,17 @@ class StartScreen(App):
 
     Button {
         width: auto;
-        padding: 1;
+        padding: 0;
         border: round $secondary;
         background: transparent;
     }
     
     Button:focus{
+        text-style: none;
+    }
     
+    Button:hover {
+        pointer: crosshair;
     }
     """
 
