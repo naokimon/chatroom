@@ -1,20 +1,12 @@
-from textual.app import App, ComposeResult
-from textual.binding import Binding
+from textual.app import ComposeResult
 from textual.containers import Vertical, Horizontal
+from textual.screen import Screen
 from textual.widgets import Footer, Button, Static
-from widgets import NonToggleHeader
+from ui.widgets import NonToggleHeader
 from pyfiglet import Figlet
 
 
-class StartScreen(App):
-
-    ENABLE_COMMAND_PALETTE = False
-
-    AUTO_FOCUS = False
-
-    BINDINGS = [
-        Binding(key="ctrl+q", action="quit", description="Quit the app")
-    ]
+class StartScreen(Screen):
 
     CSS = """
     Screen {
@@ -26,24 +18,22 @@ class StartScreen(App):
     }
 
     .container-start {
-        width: 100%;
-        height: auto;
+        height: 100%;
+        align: center middle;
     }
 
     .logo {
         width: 100%;
-        height: auto;
         text-align: center;
     }
+
     
     .button-row {
-        width: 100%;
         height: auto;
         align: center middle;
     }
 
     Button {
-        width: auto;
         padding: 0;
         border: round $secondary;
         background: transparent;
@@ -78,11 +68,5 @@ class StartScreen(App):
         yield Footer()
 
     def on_mount(self) -> None:
-        self.theme = "gruvbox"
         self.title = "Chatroom"
         self.sub_title = "Made by naokimon and Yoru_VSV"
-
-
-if __name__ == "__main__":
-    app = StartScreen()
-    app.run()
